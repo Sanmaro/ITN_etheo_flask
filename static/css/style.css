@@ -1,0 +1,24 @@
+/* Base Styles */
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #333;
+    /* background-color: #f4f7fa; Light grey background */
+    height: 100%;
+  }
+  
+
+div.dataTables_filter, div.dataTables_length {
+    padding-bottom: 1em;
+  }
+
+#main-theme {
+  background-image: url("/static/img/background.png");
+  background-position: center top;
+  background-size: cover;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+.navbar-nav .nav-link { 
+  font-family: 'Montserrat', sans-serif;
+}

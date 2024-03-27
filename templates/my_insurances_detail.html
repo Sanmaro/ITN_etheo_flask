@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}Insurance Detail | Etheo Insurance Register{% endblock %}
+
+{% block main %}
+<div class="container text-center">
+    <div class="row align-items-start">
+        <div class="col">
+            <form class="mx-auto w-25 pt-3 pb-3" 
+            {% if update %}
+                action="{{ url_for('my_insurances_update', insurance_id=insurance['insurance_id']) }}" 
+            {% elif delete %}
+                action="{{ url_for('my_insurances_delete', insurance_id=insurance['insurance_id']) }}"
+            {% else %}
+                action="/my_insurances/new"
+            {% endif %}
+                method="post">
+                <div class="mt-3">
+                    <label for="insurance_type" class="form-label">Type of Insurance</label>
+                    {% if delete %}
+                        <input name="insurance_type" type="text" class="form-control" id="insurance_type" value="{{ insurance['type'].capitalize() }}" disabled>
+                    {% else %}
+                        <select class="form-select" aria-label="Type of Insurance" name="insurance_type" id="insurance_type">
+                            {% for value, label in insurance_types %}
+                                <option value="{{ value }}" {{ "selected" if update and insurance["type"] == value }}>{{ label }}</option>
+                            {% endfor %}
+                        </select>
+                    {% endif %}
+                </div>
+                <div class="mt-3">
+                    <label for="insurance_amount" class="form-label">Amount of Covering</label>
+                    <input name="insurance_amount" type="number" class="form-control" id="insurance_amount" value="{{ insurance['amount'] if update or delete else '' }}" {% if delete %} disabled {% endif %} required>
+                </div>
+                <div class="mt-3">
+                    <label for="insurance_insuree" class="form-label">Insured person</label>
+                    <input name="insurance_insuree" type="text" class="form-control" id="insurance_insuree" value="{{ insurance['insuree_full_name'] if update or delete else '' }}" {% if delete %} disabled {% endif %} required>
+                </div>
+                <div class="mt-3">
+                    <label for="insurance_policyholder" class="form-label">Policyholder</label>
+                    <input name="insurance_policyholder" type="text" class="form-control" id="insurance_policyholder" value="{{ insurance['policyholder_full_name'] if update or delete else username }}" disabled>
+                </div>
+                <div class="mt-4 text-center">
+                    <button type="submit" class="btn btn-dark">
+                        {% if update %}
+                            Update
+                        {% elif delete %}
+                            Delete
+                        {% else %}
+                            Obtain
+                        {% endif %}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

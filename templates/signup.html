@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}Signup | Etheo Insurance Register{% endblock %}
+
+{% block main %}
+<div class="container text-center">
+    <div class="row align-items-start">
+        <div class="col">
+            <form class="mx-auto w-25 pt-3 pb-3" action="/signup" method="post">
+                <div class="mt-3">
+                    <label for="signup_email" class="form-label">E-mail</label>
+                    <input name="signup_email" type="email" class="form-control" id="signup_email" placeholder="E-mail..." required>
+                </div>
+                <div class="mt-3">
+                    <label for="signup_password" class="form-label">Password</label>
+                    <input name="signup_password" type="password" class="form-control" id="signup_password" placeholder="Password..." required>
+                </div>
+                <div class="mt-3">
+                    <label for="signup_password_conf" class="form-label">Password again</label>
+                    <input name="signup_password_conf" type="password" class="form-control" id="signup_password_conf" placeholder="Password again..." required>
+                </div>
+                <div class="mt-4 text-center">
+                    <button type="submit" class="btn btn-dark">
+                        Continue
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

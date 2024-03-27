@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block title %}Client Detail | Etheo Insurance Register{% endblock %}
+
+{% block main %}
+<div class="container text-center">
+    <div class="row align-items-start">
+        <div class="col">
+            <form class="mx-auto w-50 pt-3 pb-3 row g-3" 
+            {% if client %}
+                {% if admin %}
+                    action="{{ url_for('my_clients_update', user_id=client['user_id']) }}" 
+                {% else %}
+                    action="/my_details"
+                {% endif %}
+            {% else %}
+                    action="/signup_client"
+            {% endif %}
+                    method="post">
+                        <div class="col-md-6 mt-3">
+                            <label for="signup_client_first" class="form-label">First Name</label>
+                            <input name="signup_client_first" type="text" class="form-control" id="signup_client_first" value="{{ client['first_name'] if client else '' }}" required>
+                        </div>
+                        <div class="col-md-6 mt-3">
+                            <label for="signup_client_second" class="form-label">Second Name</label>
+                            <input name="signup_client_second" type="text" class="form-control" id="signup_client_second" value="{{ client['second_name'] if client else '' }}" required>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label for="signup_client_birthdate" class="form-label">Date of Birth</label>
+                            <input name="signup_client_birthdate" type="date" class="form-control" id="signup_client_birthdate" value="{{ client['birthdate'] if client else '' }}" required>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label for="signup_client_phone" class="form-label">Phone Number</label>
+                            <input name="signup_client_phone" type="text" class="form-control" id="signup_client_phone" value="{{ client['phone'] if client else '' }}" required>
+                        </div>
+                        <div class="col-md-8 mt-3">
+                            <label for="signup_client_street" class="form-label">Street</label>
+                            <input name="signup_client_street" type="text" class="form-control" id="signup_client_street" value="{{ client['street'] if client else '' }}" required>
+                        </div>
+                        <div class="col-md-4 mt-3">
+                            <label for="signup_client_street_no" class="form-label">No.</label>
+                            <input name="signup_client_street_no" type="number" class="form-control" id="signup_client_street_no" value="{{ client['street_no'] if client else '' }}" required>
+                        </div>
+                        <div class="col-md-6 mt-3">
+                            <label for="signup_client_city" class="form-label">City</label>
+                            <input name="signup_client_city" type="text" class="form-control" id="signup_client_city" value="{{ client['city'] if client else '' }}" required>
+                        </div>
+                        <div class="col-md-4 mt-3">
+                            <label for="signup_client_country" class="form-label">Country</label>
+                            <input name="signup_client_country" type="text" class="form-control" id="signup_client_country" value="{{ client['country'] if client else '' }}" required>
+                        </div>
+                        <div class="col-md-2 mt-3">
+                            <label for="signup_client_zip" class="form-label">ZIP Code</label>
+                            <input name="signup_client_zip" type="number" class="form-control" id="signup_client_zip" value="{{ client['zip'] if client else '' }}" required>
+                        </div>
+                        <div class="col-12 mt-4 text-center">
+                            <button type="submit" class="btn btn-dark">
+                                {% if client %}
+                                    Update
+                                {% else %}
+                                    Sign Up
+                                {% endif %}
+                            </button>
+                        </div>
+                </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

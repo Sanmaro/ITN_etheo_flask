@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}Contact | Etheo Insurance Register{% endblock %}
+
+{% block main %}
+<!-- Contact Form Section -->
+<section class="container py-5">
+    <div class="row">
+        <div class="col-lg-6 text-center">
+            <img class="img-fluid rounded" src="{{ url_for('static', filename='img/contact_headquarters.webp') }}" alt="Etheo Headquarters">
+        </div>
+        <div class="col-lg-6">
+            <h2>Our Office</h2>
+            <p>We'd love to hear from you. Visit our office or contact us through the details below:</p>
+            <address>
+                <strong>Etheo Insurance Company</strong><br>
+                123 Insurance Avenue<br>
+                Cityville, Countryland<br>
+                Zip Code: 12345<br>
+            </address>
+            <p>Email: <a class="link-dark" href="mailto:info@etheoinsurance.com">info@etheoinsurance.com</a></p>
+            <p>Phone: +1 (234) 567-890</p>
+        </div>
+    </div>
+    <div class="row mt-5 mx-auto w-50">  
+        <div class="col">
+            <h2>Contact Us</h2>
+            <p>Have questions or need assistance? Reach out to us!</p>
+            <form action="{{ url_for('contact') }}" method="post">
+                <div class="mb-3">
+                    <label for="contact_name" class="form-label">Your Name</label>
+                    <input type="text" class="form-control" id="contact_name" placeholder="Enter your name..." required>
+                </div>
+                <div class="mb-3">
+                    <label for="contact_email" class="form-label">E-mail Address</label>
+                    <input type="email" class="form-control" id="contact_email" placeholder="Enter your email..." required>
+                </div>
+                <div class="mb-3">
+                    <label for="contact_message" class="form-label">Message</label>
+                    <textarea class="form-control" id="contact_message" rows="4" placeholder="Your message..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-dark">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

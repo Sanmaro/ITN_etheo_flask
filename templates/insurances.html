@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}Insurances | Etheo Insurance Register{% endblock %}
+
+{% block main %}
+<div class="container text-center">
+
+        <!-- Life Insurance -->
+        <div class="row align-items-center my-4">
+          <div class="col-md-6">
+            <img src="{{ url_for('static', filename='img/insurance_life.webp') }}" class="img-fluid rounded" alt="Life Insurance">
+          </div>
+          <div class="col-md-6">
+            <h3>Life Insurance</h3>
+            <p>Life insurance is more than just a policy; it's a cornerstone of financial planning and security for you and your loved ones. At its core, life insurance provides peace of mind, knowing that your family will be financially protected in the event of the unthinkable. Whether it's to cover outstanding debts, fund your children's education, or provide a stable financial future for your family, life insurance stands as a testament to your care and foresight. Choose from a range of life insurance options tailored to fit your life stage, financial goals, and the legacy you wish to leave behind.</p>
+          </div>
+        </div>
+      
+        <!-- Car Insurance -->
+        <div class="row align-items-center my-4 flex-md-row-reverse">
+          <div class="col-md-6">
+            <img src="{{ url_for('static', filename='img/insurance_car.webp') }}" class="img-fluid rounded" alt="Car Insurance">
+          </div>
+          <div class="col-md-6">
+            <h3>Car Insurance</h3>
+            <p>Your vehicle is more than just a means of transportation—it's an essential part of your daily life. Car insurance protects you, your passengers, and your investment from the unpredictable nature of the road ahead. From fender benders to major collisions, car insurance offers comprehensive coverage for damage, theft, and liability, ensuring that you're back on the road with confidence and ease. With customizable coverage options, you can drive assured, knowing that we've got you covered no matter where your journeys take you.</p>
+          </div>
+        </div>
+      
+        <!-- Travel Insurance -->
+        <div class="row align-items-center my-4">
+          <div class="col-md-6">
+            <img src="{{ url_for('static', filename='img/insurance_travel.webp') }}" class="img-fluid rounded" alt="Travel Insurance">
+          </div>
+          <div class="col-md-6">
+            <h3>Travel Insurance</h3>
+            <p>Adventure awaits, but so do the unexpected twists and turns of travel. Travel insurance provides a safety net, so you can explore the world with peace of mind. Whether you're jet-setting across the globe or embarking on a weekend getaway, travel insurance covers a range of potential setbacks, including trip cancellations, medical emergencies abroad, lost luggage, and more. Don't let the unexpected derail your travel plans; secure your peace of mind with travel insurance and focus on making unforgettable memories.</p>
+          </div>
+        </div>
+        <div class="row pt-3 mb-5">
+            <div class="col">
+                Each of these insurance types is designed to offer specific protections that align with the different aspects and stages of your life, providing a tailored approach to safeguarding what matters most to you.
+            </div>
+        </div>
+      
+      </div>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}Event Detail | Etheo Insurance Register{% endblock %}
+
+{% block main %}
+<div class="container text-center">
+    <div class="row align-items-start">
+        <div class="col">
+            <form class="mx-auto w-50 pt-3 pb-3 row"
+                  {% if update %}
+                      action="{{ url_for('my_events_update', insurance_id=insurance_id, event_id=event['event_id']) }}"
+                  {% elif delete %}
+                      action="{{ url_for('my_events_delete', insurance_id=insurance_id, event_id=event['event_id']) }}"
+                  {% else %}
+                      action="{{ url_for('my_events_new', insurance_id=insurance_id) }}"
+                  {% endif %}
+                  method="post" enctype="multipart/form-data">
+                <div class="col-12 mt-3">
+                    <label for="event_description" class="form-label">Short description</label>
+                    <textarea name="event_description" class="form-control" id="event_description" rows="4" {% if delete %} disabled {% endif %} {% if update %} required {% endif %}>{{ event['description'] if update or delete else "" }}</textarea>
+                </div>
+                <div class="col-6 mt-3">
+                    <label for="event_date" class="form-label">Date and time</label>
+                    <input name="event_date" type="date" class="form-control" id="event_date" value="{{ event['date'] if update or delete else '' }}" {% if delete %} disabled {% endif %} {% if update %} required {% endif %}>
+                </div>
+                <div class="col-6 mt-3">
+                    <label for="event_location" class="form-label">Location</label>
+                    <input name="event_location" type="text" class="form-control" id="event_location" value="{{ event['location'] if update or delete else ''}}" {% if delete %} disabled {% endif %} {% if update %} required {% endif %}>
+                </div>
+                <div class="col-12 mt-3">
+                    <label for="event_documents" class="form-label">Documents</label>
+                    <input name="event_documents" type="file" class="form-control" id="event_documents" value="{{ event['documents'] if update or delete else ''}}" {% if delete %} disabled {% endif %} >
+                </div>
+                <div class="mt-4 text-center">
+                    <button type="submit" class="btn btn-dark">
+                        {% if update %}
+                            Update
+                        {% elif delete %}
+                            Delete
+                        {% else %}
+                            Report
+                        {% endif %}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

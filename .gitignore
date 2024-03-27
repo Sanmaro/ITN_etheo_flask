@@ -1,0 +1,6 @@
+__pycache__/
+flask_session/
+.venv/
+.vscode/
+.pytest_cache
+

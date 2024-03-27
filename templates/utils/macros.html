@@ -1,0 +1,3 @@
+{% macro display(value) %}
+    {{ value | default("", true) }}
+{% endmacro %}
